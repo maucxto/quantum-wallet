@@ -52,23 +52,10 @@ class ProComponent {
                 </div>
 
                 <div class="asset-list">
-                    <div class="asset-item" onclick="ModalsComponent.showSubscriptionModal('compra-aqui')">
-                        <div class="asset-icon" style="background: var(--gradient-main);">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="asset-details">
-                            <div class="asset-name">Comprar Aquí</div>
-                            <div class="asset-amount">Acceso inmediato a workshops y cursos</div>
-                        </div>
-                        <div class="asset-value">
-                            <div class="asset-price">Desde $99</div>
-                            <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>
-                        </div>
-                    </div>
 
-                    <div class="asset-item" onclick="ModalsComponent.showSubscriptionModal('mensual')">
+                    <div class="asset-item" onclick="ModalsComponent.showSubscriptionModal('mensual')" style="font-size: 1.3em; padding: 25px 20px;">
                         <div class="asset-icon" style="background: var(--primary);">
-                            <i class="fas fa-calendar-alt"></i>
+                            <i class="fas fa-calendar-alt fa-2x"></i>
                         </div>
                         <div class="asset-details">
                             <div class="asset-name">Suscripción Mensual</div>
@@ -80,9 +67,9 @@ class ProComponent {
                         </div>
                     </div>
 
-                    <div class="asset-item" onclick="ModalsComponent.showSubscriptionModal('trimestral')">
+                    <div class="asset-item" onclick="ModalsComponent.showSubscriptionModal('trimestral')" style="font-size: 1.3em; padding: 25px 20px;">
                         <div class="asset-icon" style="background: var(--secondary);">
-                            <i class="fas fa-calendar-check"></i>
+                            <i class="fas fa-calendar-check fa-2x"></i>
                         </div>
                         <div class="asset-details">
                             <div class="asset-name">Suscripción Trimestral</div>
@@ -94,9 +81,9 @@ class ProComponent {
                         </div>
                     </div>
 
-                    <div class="asset-item" onclick="ModalsComponent.showSubscriptionModal('anual')">
+                    <div class="asset-item" onclick="ModalsComponent.showSubscriptionModal('anual')" style="font-size: 1.3em; padding: 25px 20px;">
                         <div class="asset-icon" style="background: var(--accent);">
-                            <i class="fas fa-crown"></i>
+                            <i class="fas fa-crown fa-2x"></i>
                         </div>
                         <div class="asset-details">
                             <div class="asset-name">Suscripción Anual</div>
