@@ -66,9 +66,9 @@ class Web3Login {
         divider.appendChild(text);
         divider.appendChild(line2);
 
-        // Insert after subtitle
-        const subtitle = loginCard.querySelector('.login-subtitle');
-        subtitle.insertAdjacentElement('afterend', divider);
+        // Insert after login button
+        const loginBtn = loginCard.querySelector('button[onclick*="app.login()"]');
+        loginBtn.insertAdjacentElement('afterend', divider);
 
         // Create Web3 buttons container
         const web3Container = document.createElement('div');

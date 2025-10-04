@@ -811,6 +811,65 @@ body {
     margin-bottom: 30px;
 }
 
+/* Wallet Connection Styles */
+.wallet-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.wallet-divider::before,
+.wallet-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.wallet-divider::before {
+    margin-right: 10px;
+}
+
+.wallet-divider::after {
+    margin-left: 10px;
+}
+
+.wallet-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-wallet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn-wallet:hover {
+    background: rgba(37, 99, 235, 0.05);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.btn-wallet i {
+    font-size: 18px;
+}
+
 /* Responsive */
 @media (max-width: 480px) {
     .app-container {
