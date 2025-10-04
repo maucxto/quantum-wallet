@@ -96,9 +96,48 @@ class AcademyComponent {
                                 <div style="text-align:center;">
                                     <i class="fas fa-play-circle" style="font-size:48px; margin-bottom:10px;"></i>
                                     <p>Video: Estrategias de Entrada y Salida</p>
-                                </div>
+                                              </div>
                             </div>
                         </div>
+                        
+                        <p style="margin-top:15px; font-size:14px; text-align:center;">
+                            <a href="#" style="color:var(--primary);">Ver más videos</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="section-title">
+                    <span>Lecturas</span>
+                </div>
+                
+                <div class="academy-module">
+                    <div class="academy-module-header">
+                        <div class="academy-module-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="academy-module-title">Biblioteca Quantum</div>
+                    </div>
+                    <div class="academy-module-content">
+                        <p>Amplía tus conocimientos con nuestra colección de lecturas esenciales, desde conceptos básicos hasta estrategias avanzadas.</p>
+                        
+                        <div class="reading-item">
+                            <div class="reading-title">Análisis Técnico para Principiantes</div>
+                            <div class="reading-description">Guía completa para entender gráficos e indicadores técnicos</div>
+                        </div>
+                        
+                        <div class="reading-item">
+                            <div class="reading-title">Gestión de Riesgo en el Trading</div>
+                            <div class="reading-description">Cómo proteger tu capital y maximizar ganancias</div>
+                        </div>
+                        
+                        <div class="reading-item">
+                            <div class="reading-title">Psicología del Trader Exitoso</div>
+                            <div class="reading-description">Desarrolla la mentalidad adecuada para el trading consistente</div>
+                        </div>
+                        
+                        <p style="margin-top:15px; font-size:14px; text-align:center;">
+                            <a href="#" style="color:var(--primary);">Ver todas las lecturas</a>
+                        </p>
                     </div>
                 </div>
             </div>
