@@ -51,7 +51,7 @@ class DashboardComponent {
                         <div class="action-icon"><i class="fas fa-exchange-alt"></i></div>
                         <div class="action-label">Convertir</div>
                     </button>
-                    <button class="action-btn" onclick="ModalsComponent.showBuyModal()">
+                    <button class="action-btn" onclick="QuantumBuyComponent.showBuyModal()">
                         <div class="action-icon"><i class="fas fa-plus"></i></div>
                         <div class="action-label">Comprar</div>
                     </button>
@@ -434,8 +434,15 @@ class DashboardComponent {
     }
 }
 
-// Inicializar actualizaciones automáticas cuando se carga el dashboard
+// Hacer componentes disponibles globalmente para compatibilidad
 document.addEventListener('DOMContentLoaded', () => {
+    // Asegurar que QuantumBuyComponent esté disponible
+    if (typeof QuantumBuyComponent !== 'undefined') {
+        console.log('✅ QuantumBuyComponent cargado correctamente');
+    } else {
+        console.warn('⚠️ QuantumBuyComponent no está disponible');
+    }
+
     // Iniciar actualizaciones después de un breve delay
     setTimeout(() => {
         DashboardComponent.startAutoUpdates();

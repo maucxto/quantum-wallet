@@ -1,6 +1,9 @@
 // Componente de Modales
 class ModalsComponent {
     static showProfileModal() {
+        const user = QuantumDB.currentUser;
+        const isWeb3User = user?.web3User || false;
+
         const modalHTML = `
             <div class="modal" id="profileModal">
                 <div class="modal-content">
@@ -8,13 +11,29 @@ class ModalsComponent {
                         <h2 class="modal-title">Mi Perfil</h2>
                         <button class="close-modal" onclick="ModalsComponent.hideModal('profileModal')">&times;</button>
                     </div>
-                    
+
                     <div class="profile-header">
-                        <div class="profile-avatar">${QuantumDB.currentUser.avatar}</div>
-                        <div class="profile-name">${QuantumDB.currentUser.name}</div>
-                        <div class="profile-email">${QuantumDB.currentUser.email}</div>
+                        <div class="profile-avatar">${user.avatar}</div>
+                        <div class="profile-name">${user.name}</div>
+                        <div class="profile-email">${user.email}</div>
+                        ${isWeb3User ? '<div class="profile-badge" style="background: var(--success); color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.7em; margin-top: 5px;">Web3</div>' : ''}
                     </div>
-                    
+
+                    ${isWeb3User ? `
+                        <div class="profile-modal-item" style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success);">
+                            <div class="profile-modal-icon" style="background: var(--success);">
+                                <i class="fab fa-ethereum"></i>
+                            </div>
+                            <div class="profile-modal-text">
+                                <div class="profile-modal-title">Wallet Conectada</div>
+                                <div class="profile-modal-subtitle">${user.walletAddress?.substring(0, 10)}...${user.walletAddress?.substring(user.walletAddress.length - 8)}</div>
+                            </div>
+                            <div style="color: var(--success); font-size: 0.8em;">
+                                <i class="fas fa-check-circle"></i> Activa
+                            </div>
+                        </div>
+                    ` : ''}
+
                     <div class="profile-modal-item">
                         <div class="profile-modal-icon">
                             <i class="fas fa-user-edit"></i>
@@ -25,14 +44,14 @@ class ModalsComponent {
                         </div>
                         <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>
                     </div>
-                    
-                    <div class="profile-modal-item" onclick="LoginComponent.logout()">
+
+                    <div class="profile-modal-item" onclick="${isWeb3User ? 'Web3WalletComponent.disconnect()' : 'LoginComponent.logout()'}">
                         <div class="profile-modal-icon" style="background: var(--danger);">
                             <i class="fas fa-sign-out-alt"></i>
                         </div>
                         <div class="profile-modal-text">
-                            <div class="profile-modal-title">Cerrar Sesión</div>
-                            <div class="profile-modal-subtitle">Salir de tu cuenta</div>
+                            <div class="profile-modal-title">${isWeb3User ? 'Desconectar Wallet' : 'Cerrar Sesión'}</div>
+                            <div class="profile-modal-subtitle">${isWeb3User ? 'Desconectar MetaMask' : 'Salir de tu cuenta'}</div>
                         </div>
                         <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>
                     </div>
@@ -65,7 +84,13 @@ class ModalsComponent {
     }
 
     static showBuyModal() {
-        Helpers.showNotification('Funcionalidad de compra');
+        // Delegar al componente especializado de compra
+        if (typeof QuantumBuyComponent !== 'undefined') {
+            QuantumBuyComponent.showBuyModal();
+        } else {
+            console.error('QuantumBuyComponent no está definido. Verifica que los scripts estén cargados correctamente.');
+            Helpers.showNotification('Sistema de compra no disponible. Recarga la página.', 'error');
+        }
     }
    
     static showTradeModal(type) {

@@ -10,9 +10,9 @@ class ProComponent {
                     <a href="#" class="see-all" onclick="ProComponent.nextWorkshop()">Siguiente <i class="fas fa-chevron-right"></i></a>
                 </div>
 
-                <div class="workshops-carousel" id="workshops-carousel">
-                    <div class="carousel-container">
-                        <div class="workshop-item active">
+        <div class="workshops-carousel" id="workshops-carousel">
+            <div class="carousel-container">
+                <div class="workshop-item active" style="transition: opacity 0.5s ease-in-out;">
                             <div class="workshop-image">
                                 <img src="images/qwbp.jpg" alt="Trading Avanzado" style="width: 100%; height: 150px; object-fit: cover; border-radius: 12px;">
                             </div>
@@ -26,7 +26,7 @@ class ProComponent {
                             </div>
                         </div>
 
-                        <div class="workshop-item">
+                        <div class="workshop-item" style="transition: opacity 0.5s ease-in-out;">
                             <div class="workshop-image">
                                 <img src="images/qwbp.jpg" alt="A2A Inversores" style="width: 100%; height: 150px; object-fit: cover; border-radius: 12px;">
                             </div>
@@ -116,28 +116,40 @@ class ProComponent {
 
         if (workshops.length === 0) return;
 
+        // Remover clase active del elemento actual
         workshops[this.currentWorkshopIndex].classList.remove('active');
         indicators[this.currentWorkshopIndex].classList.remove('active');
 
+        // Cambiar al siguiente índice
         this.currentWorkshopIndex = (this.currentWorkshopIndex + 1) % workshops.length;
 
-        workshops[this.currentWorkshopIndex].classList.add('active');
-        indicators[this.currentWorkshopIndex].classList.add('active');
+        // Agregar clase active al nuevo elemento después de un pequeño delay
+        // para permitir la transición suave
+        setTimeout(() => {
+            workshops[this.currentWorkshopIndex].classList.add('active');
+            indicators[this.currentWorkshopIndex].classList.add('active');
+        }, 50);
     }
 
     static goToWorkshop(index) {
         const workshops = document.querySelectorAll('.workshop-item');
         const indicators = document.querySelectorAll('.indicator');
 
-        if (index < 0 || index >= workshops.length) return;
+        if (index < 0 || index >= workshops.length || index === this.currentWorkshopIndex) return;
 
+        // Remover clase active del elemento actual
         workshops[this.currentWorkshopIndex].classList.remove('active');
         indicators[this.currentWorkshopIndex].classList.remove('active');
 
+        // Cambiar al índice seleccionado
         this.currentWorkshopIndex = index;
 
-        workshops[this.currentWorkshopIndex].classList.add('active');
-        indicators[this.currentWorkshopIndex].classList.add('active');
+        // Agregar clase active al nuevo elemento después de un pequeño delay
+        // para permitir la transición suave
+        setTimeout(() => {
+            workshops[this.currentWorkshopIndex].classList.add('active');
+            indicators[this.currentWorkshopIndex].classList.add('active');
+        }, 50);
     }
 }
 

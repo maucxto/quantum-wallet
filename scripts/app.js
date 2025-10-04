@@ -18,47 +18,15 @@ class QuantumApp {
     }
 
     async initLoginSystems() {
-        // Inicializar sistema de login con thirdweb cuando el DOM esté listo
+        // Sistema de login inicializado - solo login tradicional por ahora
         if (document.getElementById('loginScreen')) {
-            console.log('🚀 Inicializando sistemas de login...');
-
-            try {
-                // Inicializar Web3 login simple
-                console.log('🚀 Inicializando login Web3 simple');
-
-                // Renderizar opciones de login Web3
-                await web3Login.renderLoginOptions();
-                console.log('✅ Opciones de login Web3 renderizadas');
-
-            } catch (error) {
-                console.error('❌ Error inicializando sistemas de login Web3:', error);
-            }
+            console.log('🚀 Sistema de login inicializado correctamente');
         } else {
-            console.log('❌ No se encontró loginScreen');
+            console.log('❌ No se encontró pantalla de login');
         }
     }
 
-    async waitForThirdweb() {
-        // Esperar hasta 10 segundos a que thirdweb esté disponible
-        const maxAttempts = 40; // 40 intentos x 250ms = 10 segundos
-        let attempts = 0;
 
-        return new Promise((resolve) => {
-            const checkThirdweb = () => {
-                attempts++;
-                if (typeof thirdweb !== 'undefined') {
-                    console.log(`✅ Thirdweb cargado después de ${attempts} intentos`);
-                    resolve(true);
-                } else if (attempts >= maxAttempts) {
-                    console.log('❌ Tercer cargado después del límite de tiempo');
-                    resolve(false);
-                } else {
-                    setTimeout(checkThirdweb, 250);
-                }
-            };
-            checkThirdweb();
-        });
-    }
 
     async loadTab(tabName) {
         this.currentTab = tabName;
@@ -408,6 +376,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('🚀 Quantum Wallet inicializada correctamente');
         console.log('📊 APIs integradas: CoinGecko, TradingView');
         console.log('💎 Funcionalidades: Gráficos en tiempo real, Precios live, Trading simulado');
+        console.log('🛒 Sistema de compra de crypto: Listo para usar');
+        console.log('🔗 Web3 opcional: MetaMask disponible (si está instalado)');
     } catch (error) {
         console.error('❌ Error inicializando Quantum Wallet:', error);
         Helpers.showNotification('Error inicializando la aplicación', 'error');

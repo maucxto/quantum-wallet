@@ -29,6 +29,7 @@
             </div>
             <button class="btn btn-primary" onclick="app.login()">Iniciar Sesión</button>
 
+            
             <div class="register-link">
                 <p>¿No tienes cuenta? <a href="#" onclick="ModalsComponent.showRegisterModal()">Crea una aquí</a>.</p>
             </div>
@@ -95,11 +96,21 @@
     <script src="scripts/utils/helpers.js"></script>
     <script src="scripts/utils/api.js"></script>
     <script src="scripts/components/login.js"></script>
-    <script src="scripts/components/loginThirdweb.js"></script>
+    <script src="scripts/components/web3Wallet.js"></script>
+    <script src="scripts/components/web3Init.js"></script>
     <script src="scripts/components/dashboard.js"></script>
     <script src="scripts/components/academy.js"></script>
     <script src="scripts/components/pro.js"></script>
     <script src="scripts/components/modals.js"></script>
+
+    <!-- SISTEMA DE COMPRA DE CRYPTO -->
+    <script src="scripts/components/buy/config.js"></script>
+    <script src="scripts/components/buy/paymentMethods.js"></script>
+    <script src="scripts/components/buy/moonpayIntegration.js"></script>
+    <script src="scripts/components/buy/thirdwebIntegration.js"></script>
+    <script src="scripts/components/buy/quantumBuy.js"></script>
+    <script src="scripts/components/buy/init.js"></script>
+
     <!-- NUEVOS ARCHIVOS PARA APIS REALES -->
     <script src="scripts/services/cryptoApi.js"></script>
     <script src="scripts/services/tradingView.js"></script>
