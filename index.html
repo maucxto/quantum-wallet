@@ -28,7 +28,19 @@
                 <input type="password" class="form-input" id="loginPassword" placeholder="Contraseña" value="password123">
             </div>
             <button class="btn btn-primary" onclick="app.login()">Iniciar Sesión</button>
-            
+
+
+            <div class="divider">
+                <span>--- o conectar wallet ---</span>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-secondary" onclick="loginThirdweb.showConnect()">Conectar Wallet</button>
+            </div>
+
+            <div class="register-link">
+                <p>¿No tienes cuenta? <a href="#" onclick="ModalsComponent.showRegisterModal()">Crea una aquí</a>.</p>
+            </div>
 
         </div>
     </div>
