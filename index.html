@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum - Wallet Multiactivos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Ethereum Provider and Wallet Connect -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.9.0/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"></script>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginScreen">
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="logo-icon" style="width: 60px; height: 60px; margin: 0 auto;"></div>
+            </div>
+            <h1 class="login-title">Quantum</h1>
+            <p class="login-subtitle">Tu billetera multiactivos segura</p>
+            
+            <div class="form-group">
+                <input type="email" class="form-input" id="loginEmail" placeholder="Correo electrónico" value="usuario@quantum.com">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-input" id="loginPassword" placeholder="Contraseña" value="password123">
+            </div>
+            <button class="btn btn-primary" onclick="app.login()">Iniciar Sesión</button>
+            
+
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="app-container" id="appContainer" style="display: none;">
+        <div class="bg-effects">
+            <div class="bg-circle circle-1"></div>
+            <div class="bg-circle circle-2"></div>
+        </div>
+        
+        <div class="app-header">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                Quantum
+            </div>
+            <div class="header-actions">
+                <button class="header-btn" onclick="dashboard.showNotificationCenter()">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="header-btn" onclick="dashboard.syncData()">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button class="header-btn" onclick="modals.showProfileModal()">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Aquí se cargarán las diferentes vistas -->
+        <div class="main-content" id="mainContent">
+            <!-- El contenido se carga dinámicamente -->
+        </div>
+        
+        <div class="bottom-nav">
+            <div class="nav-item active" onclick="app.switchTab('home')">
+                <div class="nav-icon"><i class="fas fa-home"></i></div>
+                <div>Inicio</div>
+            </div>
+            <div class="nav-item" onclick="app.switchTab('charts')">
+                <div class="nav-icon"><i class="fas fa-chart-line"></i></div>
+                <div>Gráficos</div>
+            </div>
+            <div class="nav-item" onclick="app.switchTab('academy')">
+                <div class="nav-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div>Academy</div>
+            </div>
+            <div class="nav-item" onclick="app.switchTab('pro')">
+                <div class="nav-icon"><i class="fas fa-coins"></i></div>
+                <div>Pro</div>
+            </div>
+            <div class="nav-item" onclick="app.switchTab('profile')">
+                <div class="nav-icon"><i class="fas fa-user"></i></div>
+                <div>Perfil</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/database.js"></script>
+    <script src="scripts/utils/helpers.js"></script>
+    <script src="scripts/utils/api.js"></script>
+    <script src="scripts/components/login.js"></script>
+    <script src="scripts/components/loginThirdweb.js"></script>
+    <script src="scripts/components/dashboard.js"></script>
+    <script src="scripts/components/academy.js"></script>
+    <script src="scripts/components/pro.js"></script>
+    <script src="scripts/components/modals.js"></script>
+    <!-- NUEVOS ARCHIVOS PARA APIS REALES -->
+    <script src="scripts/services/cryptoApi.js"></script>
+    <script src="scripts/services/tradingView.js"></script>
+    <script src="scripts/components/charts.js"></script>
+    <!-- FIN NUEVOS ARCHIVOS -->
+    <script src="scripts/app.js"></script>
+</body>on
+</html>
