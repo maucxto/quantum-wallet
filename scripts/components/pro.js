@@ -14,7 +14,7 @@ class ProComponent {
                     <div class="carousel-container">
                         <div class="workshop-item active">
                             <div class="workshop-image">
-                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjBGMEYwIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OTk5OSI+U2VtaW5hcmNvIGRlIFRyYWRpbmcgQXZhbnphZG88L3RleHQ+Cjwvc3ZnPg==" alt="Trading Avanzado" style="width: 100%; height: 150px; object-fit: cover; border-radius: 12px;">
+                                <img src="images/qwbp.jpg" alt="Trading Avanzado" style="width: 100%; height: 150px; object-fit: cover; border-radius: 12px;">
                             </div>
                             <div class="workshop-details">
                                 <div class="workshop-name">Seminario de Trading Avanzado</div>
@@ -28,21 +28,7 @@ class ProComponent {
 
                         <div class="workshop-item">
                             <div class="workshop-image">
-                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjBGMEYwIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OTk5OSI+Q29uZmVyZW5jaWEgRGVCaWxsZXRlcmFzIENyaXB0bzwvdGV4dD4KPHN2Zz4=" alt="Criptomonedas" style="width: 100%; height: 150px; object-fit: cover; border-radius: 12px;">
-                            </div>
-                            <div class="workshop-details">
-                                <div class="workshop-name">Conferencia de Billeteras Cripto</div>
-                                <div class="workshop-description">Descubre las mejores prácticas para mantener segura tu billetera de criptomonedas en la era digital actual.</div>
-                                <div class="workshop-price">
-                                    <span class="price">$199 USD</span>
-                                    <button class="btn btn-primary btn-sm" onclick="ModalsComponent.showPurchaseModal('Conferencia de Billeteras Cripto', 199)">Comprar Workshop</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="workshop-item">
-                            <div class="workshop-image">
-                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjBGMEYwIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OTk5OSI+QTJBIENvbiBJbnZlcnNvcmVzPC90ZXh0Pgo8L3N2Zz4=" alt="A2A Inversores" style="width: 100%; height: 150px; object-fit: cover; border-radius: 12px;">
+                                <img src="images/qwbp.jpg" alt="A2A Inversores" style="width: 100%; height: 150px; object-fit: cover; border-radius: 12px;">
                             </div>
                             <div class="workshop-details">
                                 <div class="workshop-name">A2A con Inversores Exitosos</div>
@@ -59,7 +45,6 @@ class ProComponent {
                 <div class="carousel-indicators">
                     <span class="indicator active" onclick="ProComponent.goToWorkshop(0)"></span>
                     <span class="indicator" onclick="ProComponent.goToWorkshop(1)"></span>
-                    <span class="indicator" onclick="ProComponent.goToWorkshop(2)"></span>
                 </div>
 
                 <div class="section-title">
