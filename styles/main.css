@@ -1,22 +1,33 @@
 :root {
-    --primary: #2563eb;
-    --primary-light: #3b82f6;
-    --secondary: #6366f1;
-    --accent: #06b6d4;
-    --accent-light: #22d3ee;
-    --success: #10b981;
+    --navy: #001F3F;
+    --teal: #007BFF;
+    --light-blue: #ADD8E6;
+    --white: #FFFFFF;
+    --dark-gray: #2C3E50;
+    --light-gray: #ECF0F1;
+    --green: #2ECC71;
+    --purple: #9B59B6;
+    --quantum-glow: rgba(173, 216, 230, 0.5);
+
+    /* Mapeo de variables antiguas a nuevas */
+    --primary: var(--navy);
+    --primary-light: var(--teal);
+    --secondary: var(--teal);
+    --accent: var(--light-blue);
+    --accent-light: var(--light-blue);
+    --success: var(--green);
     --warning: #f59e0b;
     --danger: #ef4444;
-    --background: #f8fafc;
-    --card-bg: #ffffff;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-tertiary: #94a3b8;
-    --border: #e2e8f0;
-    --gradient-main: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
-    --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
+    --background: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-primary: var(--white);
+    --text-secondary: var(--light-blue);
+    --text-tertiary: rgba(173, 216, 230, 0.7);
+    --border: rgba(255, 255, 255, 0.1);
+    --gradient-main: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.3);
     --transition: all 0.3s ease;
 }
 
@@ -791,9 +802,13 @@ body {
 }
 
 .login-logo {
-    font-size: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
     margin-bottom: 20px;
-    color: var(--primary);
 }
 
 .login-title {
@@ -1688,6 +1703,8 @@ body {
 .action-btn {
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, var(--teal) 0%, #0056b3 100%);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
 }
 
 .action-btn::after {
@@ -1706,6 +1723,156 @@ body {
 .action-btn:active::after {
     width: 100px;
     height: 100px;
+}
+
+/* Botones principales mejorados */
+.btn-primary {
+    background: linear-gradient(135deg, var(--teal) 0%, #0056b3 100%) !important;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4) !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.6) !important;
+}
+
+/* Tarjetas mejoradas */
+.balance-card, .asset-item, .chart-container, .academy-module, .module-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 15px !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Sistema de colores para textos mejorado */
+.asset-change.positive {
+    color: var(--green) !important;
+}
+
+.asset-change.negative {
+    color: var(--danger) !important;
+}
+
+.detail-value.positive {
+    color: var(--green) !important;
+}
+
+.detail-value.negative {
+    color: var(--danger) !important;
+}
+
+/* Textos específicos */
+.balance-amount {
+    color: var(--white) !important;
+}
+
+.asset-price {
+    color: var(--white) !important;
+}
+
+.news-title {
+    color: var(--white) !important;
+}
+
+.academy-module-title {
+    color: var(--white) !important;
+}
+
+.module-name {
+    color: var(--white) !important;
+}
+
+.profile-name {
+    color: var(--white) !important;
+}
+
+/* Textos secundarios */
+.asset-name {
+    color: var(--light-blue) !important;
+}
+
+.news-excerpt {
+    color: var(--light-blue) !important;
+}
+
+.academy-module-content {
+    color: var(--light-blue) !important;
+}
+
+.module-desc {
+    color: var(--light-blue) !important;
+}
+
+.profile-email {
+    color: var(--light-blue) !important;
+}
+
+/* ================================================ */
+/* AJUSTES ESPECÍFICOS SOLICITADOS */
+/* ================================================ */
+
+/* 1. Logo Quantum en Login - Blanco */
+.login-title {
+    color: var(--white) !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+}
+
+/* 2. Links de Academia - Blanco */
+.academy-module-content a {
+    color: var(--white) !important;
+}
+
+.academy-module-content a:hover {
+    color: var(--teal) !important;
+}
+
+/* 3. Precios en Pro - Blanco */
+.price {
+    color: var(--white) !important;
+    font-weight: 700 !important;
+}
+
+/* 4. Subtítulos de pestañas - Blanco (sin degradado) */
+.section-title {
+    color: var(--white) !important;
+}
+
+.section-title span {
+    color: var(--white) !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+}
+
+/* Específicos por componente */
+.academy-hero h2 {
+    color: var(--white) !important;
+}
+
+.module-name {
+    color: var(--white) !important;
+}
+
+.academy-module-title {
+    color: var(--white) !important;
+}
+
+.reading-title {
+    color: var(--white) !important;
+}
+
+.workshop-name {
+    color: var(--white) !important;
+}
+
+/* Links adicionales en toda la aplicación */
+a {
+    color: var(--white);
+}
+
+a:hover {
+    color: var(--teal);
 }
 
 /* Estados de carga */

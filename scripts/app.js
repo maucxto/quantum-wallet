@@ -372,12 +372,14 @@ class QuantumApp {
 // Inicializar la aplicación cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
     try {
+        console.log('🔄 Iniciando Quantum Wallet...');
         window.app = new QuantumApp();
         console.log('🚀 Quantum Wallet inicializada correctamente');
         console.log('📊 APIs integradas: CoinGecko, TradingView');
         console.log('💎 Funcionalidades: Gráficos en tiempo real, Precios live, Trading simulado');
         console.log('🛒 Sistema de compra de crypto: Listo para usar');
         console.log('🔗 Web3 opcional: MetaMask disponible (si está instalado)');
+        console.log('🔐 Estado de login:', document.getElementById('loginScreen') ? 'Pantalla de login encontrada' : 'Pantalla de login NO encontrada');
     } catch (error) {
         console.error('❌ Error inicializando Quantum Wallet:', error);
         Helpers.showNotification('Error inicializando la aplicación', 'error');

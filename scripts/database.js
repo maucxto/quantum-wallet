@@ -52,12 +52,15 @@ class QuantumDatabase {
 
     // Métodos de autenticación
     login(email, password) {
+        console.log('🔍 Buscando usuario:', email);
         const user = this.users.find(u => u.email === email && u.password === password);
         if (user) {
+            console.log('✅ Usuario encontrado:', user.email);
             this.currentUser = user;
             this.authToken = this.generateToken();
             return { success: true, token: this.authToken, user: user };
         }
+        console.log('❌ Usuario no encontrado o contraseña incorrecta');
         return { success: false, error: "Credenciales inválidas" };
     }
 
