@@ -150,6 +150,39 @@ class PaymentMethodsComponent {
         `).join('');
     }
 
+    static renderPaymentMethodSelectorByCategory(category) {
+        const categoryMethods = {
+            wallets: ['applePay', 'googlePay'],
+            cards: ['debitCard', 'creditCard'],
+            bank: ['spei']
+        };
+
+        const methodKeys = categoryMethods[category] || [];
+        const methods = this.getAvailableMethods().filter(method => methodKeys.includes(method.key));
+
+        return methods.map(method => `
+            <div class="payment-method ${method.key}"
+                 onclick="PaymentMethodsComponent.selectMethod('${method.key}')"
+                 style="padding: 12px; border: 2px solid var(--border); border-radius: 10px; cursor: pointer; background: var(--card-bg);">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 40px; height: 30px; background: var(--background); border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
+                            <i class="${method.icon}" style="font-size: 1.2em; color: var(--text-primary);"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600; color: var(--text-primary);">${method.name}</div>
+                            <div style="font-size: 0.8em; color: var(--text-secondary);">${method.processingTime}</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 0.9em; color: var(--text-primary);">${(method.commission * 100).toFixed(1)}%</div>
+                        <div style="font-size: 0.8em; color: var(--text-secondary);">${method.fixedFee > 0 ? `+$${method.fixedFee}` : 'Sin cargo fijo'}</div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
     static selectMethod(methodKey) {
         // Actualizar selección visual
         document.querySelectorAll('.payment-method').forEach(method => {

@@ -39,7 +39,7 @@ class AcademyComponent {
                         <div class="module-name">Análisis Técnico</div>
                         <div class="module-desc">Domina gráficos e indicadores</div>
                         <div class="progress-bar">
-                            <div class="progress-fill" style="width: 65%"></div>
+                            <div class="progress-fill" style="width: 95%"></div>
                         </div>
                     </div>
                     
@@ -50,7 +50,7 @@ class AcademyComponent {
                         <div class="module-name">Gestión de Riesgo</div>
                         <div class="module-desc">Protege y haz crecer tu capital</div>
                         <div class="progress-bar">
-                            <div class="progress-fill" style="width: 40%"></div>
+                            <div class="progress-fill" style="width: 80%"></div>
                         </div>
                     </div>
                     
@@ -61,7 +61,7 @@ class AcademyComponent {
                         <div class="module-name">Psicología</div>
                         <div class="module-desc">Mentalidad del trader exitoso</div>
                         <div class="progress-bar">
-                            <div class="progress-fill" style="width: 30%"></div>
+                            <div class="progress-fill" style="width: 90%"></div>
                         </div>
                     </div>
                     
@@ -72,7 +72,7 @@ class AcademyComponent {
                         <div class="module-name">Automatización</div>
                         <div class="module-desc">Estrategias algorítmicas</div>
                         <div class="progress-bar">
-                            <div class="progress-fill" style="width: 20%"></div>
+                            <div class="progress-fill" style="width: 78%"></div>
                         </div>
                     </div>
                 </div>

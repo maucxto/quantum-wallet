@@ -95,13 +95,19 @@ class QuantumBuyComponent {
     static showBuyModal() {
         const modalHTML = `
             <div class="modal" id="quantumBuyModal" style="background: rgba(0,0,0,0.8);">
-                <div class="modal-content" style="width: 95%; max-width: 400px; margin: auto; background: var(--card-bg); border-radius: 20px; overflow: hidden; position: relative;">
+                <div class="modal-content" style="width: 95%; max-width: 400px; margin: auto; background: var(--card-bg); border-radius: 20px; overflow: hidden; position: relative; max-height: 85vh; display: flex; flex-direction: column;">
 
                     <!-- Header -->
-                    <div class="modal-header" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 20px; text-align: center;">
+                    <div class="modal-header" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 20px; text-align: center; flex-shrink: 0; position: relative;">
+                        <button class="back-to-home-btn" onclick="QuantumBuyComponent.backToHome()" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); border: none; color: white; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
                         <h2 class="modal-title" style="margin: 0; font-size: 1.5em;">Comprar Cripto</h2>
                         <p style="margin: 5px 0 0 0; opacity: 0.9; font-size: 0.9em;">Compra rápida y segura</p>
                     </div>
+
+                    <!-- Scrollable Content -->
+                    <div style="flex: 1; overflow-y: auto; max-height: calc(85vh - 120px); padding-bottom: 20px;">
 
                     <!-- Selector de criptomoneda -->
                     <div style="padding: 20px;">
@@ -149,11 +155,20 @@ class QuantumBuyComponent {
                             </div>
                         </div>
 
-                        <!-- Métodos de pago -->
+                        <!-- Pestañas de métodos de pago -->
                         <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 10px; color: var(--text-primary); font-weight: 600;">Método de Pago</label>
+                            <label style="display: block; margin-bottom: 15px; color: var(--text-primary); font-weight: 600;">Método de Pago</label>
+
+                            <!-- Tabs de categorías -->
+                            <div class="payment-tabs" style="display: flex; background: var(--card-bg); border-radius: 12px; padding: 4px; margin-bottom: 15px; border: 1px solid var(--border);">
+                                <button class="payment-tab active" onclick="QuantumBuyComponent.switchPaymentTab('wallets')" style="flex: 1; padding: 10px; border: none; background: var(--primary); color: white; border-radius: 8px; cursor: pointer; font-size: 0.9em; font-weight: 500;">Billeteras</button>
+                                <button class="payment-tab" onclick="QuantumBuyComponent.switchPaymentTab('cards')" style="flex: 1; padding: 10px; border: none; background: transparent; color: var(--text-secondary); border-radius: 8px; cursor: pointer; font-size: 0.9em; font-weight: 500;">Tarjetas</button>
+                                <button class="payment-tab" onclick="QuantumBuyComponent.switchPaymentTab('bank')" style="flex: 1; padding: 10px; border: none; background: transparent; color: var(--text-secondary); border-radius: 8px; cursor: pointer; font-size: 0.9em; font-weight: 500;">Bancario</button>
+                            </div>
+
+                            <!-- Contenido de métodos de pago por categoría -->
                             <div id="paymentMethods" style="display: grid; gap: 8px;">
-                                ${PaymentMethodsComponent.renderPaymentMethodSelector('debitCard')}
+                                <!-- Payment methods will be loaded by tab -->
                             </div>
                         </div>
 
@@ -198,6 +213,11 @@ class QuantumBuyComponent {
         this.currentCrypto = 'BTC';
         this.currentAmount = '';
         this.currentCurrency = 'MXN';
+
+        // Cargar métodos de pago iniciales (pestaña wallets por defecto)
+        setTimeout(() => {
+            this.switchPaymentTab('wallets');
+        }, 100);
 
         // Actualizar preview inicial
         this.updateBuyPreview();
@@ -401,6 +421,57 @@ class QuantumBuyComponent {
             modal.remove();
         }
     }
+
+    static switchPaymentTab(category) {
+        // Actualizar pestañas visuales
+        document.querySelectorAll('.payment-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        event.target.classList.add('active');
+
+        // Actualizar estilos de pestañas
+        document.querySelectorAll('.payment-tab').forEach(tab => {
+            if (tab.classList.contains('active')) {
+                tab.style.background = 'var(--primary)';
+                tab.style.color = 'white';
+            } else {
+                tab.style.background = 'transparent';
+                tab.style.color = 'var(--text-secondary)';
+            }
+        });
+
+        // Mostrar métodos de pago correspondientes
+        const paymentMethodsContainer = document.getElementById('paymentMethods');
+        if (paymentMethodsContainer) {
+            switch(category) {
+                case 'wallets':
+                    paymentMethodsContainer.innerHTML = PaymentMethodsComponent.renderPaymentMethodSelectorByCategory('wallets');
+                    break;
+                case 'cards':
+                    paymentMethodsContainer.innerHTML = PaymentMethodsComponent.renderPaymentMethodSelectorByCategory('cards');
+                    break;
+                case 'bank':
+                    paymentMethodsContainer.innerHTML = PaymentMethodsComponent.renderPaymentMethodSelectorByCategory('bank');
+                    break;
+            }
+        }
+    }
+
+    static backToHome() {
+        // Cerrar modal de compra
+        this.hideBuyModal();
+
+        // Regresar a la pantalla principal si es necesario
+        if (document.getElementById('appContainer').style.display === 'none') {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('appContainer').style.display = 'block';
+
+            // Cargar la primera pestaña del dashboard
+            if (typeof app !== 'undefined' && app.loadTab) {
+                app.loadTab('home');
+            }
+        }
+    }
 }
 
 // Agregar estilos CSS responsivos
@@ -543,6 +614,41 @@ buyModalStyles.textContent = `
     @keyframes fa-spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
+    }
+
+    /* Estilos para pestañas de métodos de pago */
+    .payment-tabs {
+        transition: all 0.2s ease !important;
+    }
+
+    .payment-tab {
+        transition: all 0.2s ease !important;
+        font-weight: 500 !important;
+    }
+
+    .payment-tab:hover {
+        background: rgba(37, 99, 235, 0.1) !important;
+        color: var(--primary) !important;
+    }
+
+    .payment-tab.active {
+        background: var(--primary) !important;
+        color: white !important;
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3) !important;
+    }
+
+    /* Estilos para botón de regresar */
+    .back-to-home-btn {
+        transition: all 0.2s ease !important;
+    }
+
+    .back-to-home-btn:hover {
+        background: rgba(255, 255, 255, 0.3) !important;
+        transform: translateY(-50%) scale(1.1) !important;
+    }
+
+    .back-to-home-btn:active {
+        transform: translateY(-50%) scale(0.95) !important;
     }
 `;
 

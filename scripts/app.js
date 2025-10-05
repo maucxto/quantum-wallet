@@ -30,20 +30,26 @@ class QuantumApp {
 
     async loadTab(tabName) {
         this.currentTab = tabName;
-        
+
+        // Reset scroll position to top when switching tabs
+        window.scrollTo(0, 0);
+
         // Actualizar navegación
         document.querySelectorAll('.nav-item').forEach(item => {
             item.classList.remove('active');
         });
-        
+
         const navItems = document.querySelectorAll('.nav-item');
-        const activeIndex = Array.from(navItems).findIndex(item => 
+        const activeIndex = Array.from(navItems).findIndex(item =>
             item.getAttribute('onclick').includes(`'${tabName}'`)
         );
-        
+
         if (activeIndex >= 0) {
             navItems[activeIndex].classList.add('active');
         }
+
+        // Update back button visibility
+        this.updateBackButton(tabName);
         
         // Cargar contenido de la pestaña
         switch(tabName) {
@@ -321,6 +327,33 @@ class QuantumApp {
 
     switchTab(tabName) {
         this.loadTab(tabName);
+    }
+
+    updateBackButton(currentTab) {
+        // Remove existing back button
+        const existingBackBtn = document.querySelector('.back-btn');
+        if (existingBackBtn) {
+            existingBackBtn.remove();
+        }
+
+        // Add back button if not on home tab
+        if (currentTab !== 'home') {
+            const headerActions = document.querySelector('.header-actions');
+            if (headerActions) {
+                const backButton = document.createElement('button');
+                backButton.className = 'header-btn back-btn';
+                backButton.innerHTML = '<i class="fas fa-arrow-left"></i>';
+                backButton.onclick = () => this.goHome();
+                backButton.title = 'Volver al inicio';
+
+                // Insert back button at the beginning
+                headerActions.insertBefore(backButton, headerActions.firstChild);
+            }
+        }
+    }
+
+    goHome() {
+        this.switchTab('home');
     }
 
     setupEventListeners() {
