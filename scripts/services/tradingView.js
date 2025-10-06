@@ -6,7 +6,7 @@ class TradingViewService {
     }
 
     // Crear widget de TradingView
-    createWidget(containerId, symbol = 'BINANCE:BTCUSDT', interval = '15', theme = 'light') {
+    createWidget(containerId, symbol = 'BINANCE:BTCUSDT', interval = '15', theme = 'dark') {
         // Limpiar contenedor previo
         const container = document.getElementById(containerId);
         if (!container) {
@@ -70,7 +70,7 @@ class TradingViewService {
                     "height": "220",
                     "locale": "es",
                     "dateRange": "12M",
-                    "colorTheme": "light",
+                    "colorTheme": "dark",
                     "trendLineColor": "#37a6ef",
                     "underLineColor": "rgba(55, 166, 239, 0.15)",
                     "underLineBottomColor": "rgba(55, 166, 239, 0)",

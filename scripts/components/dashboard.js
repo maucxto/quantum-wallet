@@ -77,34 +77,7 @@ class DashboardComponent {
                     ${this.renderAssets(portfolio.assets, 'stocks')}
                 </div>
 
-                <div class="section-title">
-                    <span>Gráfico BTC/USD</span>
-                    <a href="#" class="see-all">1D <i class="fas fa-chevron-down"></i></a>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-header">
-                        <div class="chart-title">Bitcoin</div>
-                        <div class="chart-timeframes">
-                            <button class="timeframe-btn">1H</button>
-                            <button class="timeframe-btn active">1D</button>
-                            <button class="timeframe-btn">1S</button>
-                            <button class="timeframe-btn">1M</button>
-                        </div>
-                    </div>
-                    <div class="chart-canvas" id="btcChart">
-                        <svg width="100%" height="100%" viewBox="0 0 500 200">
-                            <defs>
-                                <linearGradient id="chart-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#2563eb" stop-opacity="0.3" />
-                                    <stop offset="100%" stop-color="#2563eb" stop-opacity="0" />
-                                </linearGradient>
-                            </defs>
-                            <path class="chart-line" d="M0,150 C100,100 150,50 250,120 C350,190 400,80 500,130" />
-                            <path class="chart-area" d="M0,150 C100,100 150,50 250,120 C350,190 400,80 500,130 L500,200 L0,200 Z" />
-                        </svg>
-                    </div>
-                </div>
+
 
                 <div class="section-title">
                     <span>Noticias del Mercado</span>

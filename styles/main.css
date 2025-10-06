@@ -803,11 +803,51 @@ body {
 .login-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    gap: 15px;
     font-weight: 700;
     font-size: 24px;
     color: white;
     margin-bottom: 20px;
+    width: 100%;
+    min-height: 40px;
+}
+
+.login-logo-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-logo-icon::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 4px;
+    transform: rotate(45deg);
+    opacity: 0.9;
+}
+
+.login-logo-icon::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-light);
+    border-radius: 2px;
+    bottom: 5px;
+    right: 5px;
 }
 
 .login-title {

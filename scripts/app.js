@@ -31,6 +31,9 @@ class QuantumApp {
     async loadTab(tabName) {
         this.currentTab = tabName;
 
+        // Close any open modals before switching tabs
+        this.closeAllModals();
+
         // Reset scroll position to top when switching tabs
         window.scrollTo(0, 0);
 
@@ -330,30 +333,35 @@ class QuantumApp {
     }
 
     updateBackButton(currentTab) {
-        // Remove existing back button
-        const existingBackBtn = document.querySelector('.back-btn');
-        if (existingBackBtn) {
-            existingBackBtn.remove();
-        }
-
-        // Add back button if not on home tab
-        if (currentTab !== 'home') {
-            const headerActions = document.querySelector('.header-actions');
-            if (headerActions) {
-                const backButton = document.createElement('button');
-                backButton.className = 'header-btn back-btn';
-                backButton.innerHTML = '<i class="fas fa-arrow-left"></i>';
-                backButton.onclick = () => this.goHome();
-                backButton.title = 'Volver al inicio';
-
-                // Insert back button at the beginning
-                headerActions.insertBefore(backButton, headerActions.firstChild);
-            }
-        }
+        // Back button functionality removed as requested
+        // This method now serves as a placeholder for future navigation enhancements
     }
 
     goHome() {
         this.switchTab('home');
+    }
+
+    // Close all open modals before switching tabs
+    closeAllModals() {
+        // Close buy modal specifically
+        const buyModal = document.getElementById('quantumBuyModal');
+        if (buyModal) {
+            buyModal.style.display = 'none';
+            buyModal.remove();
+        }
+
+        // Close any other modals that might be open
+        const allModals = document.querySelectorAll('.modal[style*="display: flex"], .modal[style*="display:block"]');
+        allModals.forEach(modal => {
+            modal.style.display = 'none';
+            modal.remove();
+        });
+
+        // Also close notification center if open
+        const notificationCenter = document.querySelector('.notification-center.open');
+        if (notificationCenter) {
+            notificationCenter.classList.remove('open');
+        }
     }
 
     setupEventListeners() {
